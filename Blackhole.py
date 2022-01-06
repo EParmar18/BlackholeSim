@@ -20,9 +20,13 @@ class Blackhole:
         fg = self.g * self.mass / (r * r)
         force.magnitude = fg
         p.vel = p.vel + force
-        #p.vel.magnitude = self.c
+        p.vel.magnitude = self.c
+
+        if r <= self.rs:
+            p.stop()
 
     def show(self):
+        ellipse_mode(mode = 'RADIUS')
         fill(50)
         no_stroke()
         circle((self.pos), self.rs)
