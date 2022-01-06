@@ -8,6 +8,7 @@ class Blackhole:
         self.pos = Vector(x,y)
         self.mass = m
         self.g = g
+        self.c = c
         self.rs = (2 * g * self.mass) / (c * c)
         print(self.rs)
 
@@ -19,6 +20,7 @@ class Blackhole:
         fg = self.g * self.mass / (r * r)
         force.magnitude = fg
         p.vel = p.vel + force
+        #p.vel.magnitude = self.c
 
     def show(self):
         fill(50)
@@ -27,10 +29,10 @@ class Blackhole:
 
         no_fill()
         stroke(100)
-        stroke_weight(10)
+        stroke_weight(6)
         circle(self.x, self.y, self.rs * 3 + 2)
 
         stroke(255, 150, 0)
-        stroke_weight(4)
+        stroke_weight(3)
         circle(self.x, self.y, self.rs * 1.5 + 1)
 
