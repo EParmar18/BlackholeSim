@@ -1,6 +1,8 @@
 from p5 import *
 from Blackhole import Blackhole
 from Photon import Photon
+import numpy
+import math
 # Schwarzschild Radius Constants 
 # Using M87 Blackhole Mass which is 2.6 Billion * Sun
 
@@ -11,6 +13,7 @@ s_radius = (2 * gravity * mass) / (light_speed ** 2)
 delta_time = 0.1
 height = 250
 width = 250
+frameRate = 144
 
 m87 = Blackhole( width, height, mass, gravity, light_speed)
 photons = []
@@ -33,8 +36,12 @@ def setup():
 
 def draw():
     m87.show()
+    background(255)
     for p in photons:
+        m87.pull(p)
+
         p.update()
         p.show()
 
-run()
+    
+run(frame_rate = frameRate)
