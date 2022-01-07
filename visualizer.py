@@ -8,12 +8,13 @@ import math
 
 light_speed = 30
 gravity = 2
-mass = 8000
+mass = 6000
 s_radius = (2 * gravity * mass) / (light_speed ** 2)
 delta_time = 0.1
 height = 1000
 width = 1000
 frameRate = 130
+photon_count = 5
 
 m87 = Blackhole( width/2, height/2, mass, gravity, light_speed)
 photons = []
@@ -23,8 +24,8 @@ print("Start" , start)
 print("m87", m87.rs)
 print("End", end)
 
-for i in range(100,700):
-    if i % 35 == 0:
+for i in range(500,900):
+    if i % photon_count == 0:
         photons.append(Photon(width/2 + (width / 4), i, light_speed,delta_time))
 
 
