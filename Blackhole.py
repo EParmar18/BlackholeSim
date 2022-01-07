@@ -13,7 +13,7 @@ class Blackhole:
         print(self.rs)
 
     # Force of grav  = (G * M1 * M2) / r * 2
-    # Problem here is that photons have 0 mass, so 
+    # Method to mimic newtonian gravity
     def pull(self, p):
         force = self.pos - p.pos
         r = magnitude(force.x, force.y)

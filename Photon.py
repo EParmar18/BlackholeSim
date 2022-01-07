@@ -13,6 +13,7 @@ class Photon:
         self.history = []
         self.stopped = False
 
+    # Move the photons based on the delta time constant and update position
     def update(self):
         if not self.stopped:
             self.history.append(self.pos.copy())
@@ -20,12 +21,14 @@ class Photon:
         deltaV = deltaV * self.dt
         self.pos = self.pos + deltaV
 
+        # Storing history for trails
         if len(self.history) > 300:
             self.history.pop(0)
 
     def stop(self):
         self.stopped = True
 
+    # Drawinng the photons and trails based off history list
     def show(self):
         stroke(255,0,0)
         stroke_weight(4)
